@@ -24,8 +24,12 @@ function Navbar({ setSelectedOption }) {
         Horror
       </h3>
       <h3 onClick={() => setSelectedOption(requests.fetchRomanceMovies)}>
-        Romantic
+        Romance
       </h3>
+      <h3 onClick={() => setSelectedOption(requests.fetchMystery)}>Mystery</h3>
+      <h3 onClick={() => setSelectedOption(requests.fetchSciFi)}>Sci-Fi</h3>
+      <h3 onClick={() => setSelectedOption(requests.fetchWestern)}>Western</h3>
+      <h3 onClick={() => setSelectedOption(requests.fetchTV)}>TV</h3>
     </div>
   );
 }

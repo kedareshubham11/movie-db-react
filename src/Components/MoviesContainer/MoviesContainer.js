@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
-import requests from "../../Services/API/tmdb-api";
 
 function MoviesContainer({ selectedOption }) {
   const [movies, setMovies] = useState([]);
@@ -15,12 +14,12 @@ function MoviesContainer({ selectedOption }) {
     }
 
     fetchData();
-  }, []);
+  }, [selectedOption]);
 
   return (
     <div className="moviesContainer">
       {movies.map((movie) => (
-        <VideoCard movie={movie} />
+        <VideoCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
