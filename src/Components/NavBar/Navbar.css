@@ -29,3 +29,8 @@
   opacity: 1;
   transform: scale(1.2);
 }
+
+.navbar .active {
+  opacity: 1;
+  transform: scale(1.2);
+}

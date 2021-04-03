@@ -11,7 +11,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Navbar setSelectedOption={setSelectedOption} />
+      <Navbar
+        setSelectedOption={setSelectedOption}
+        selectedOption={selectedOption}
+      />
 
       <MoviesContainer selectedOption={selectedOption} />
     </div>

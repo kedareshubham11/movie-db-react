@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
+import FlipMove from "react-flip-move";
 
 function MoviesContainer({ selectedOption }) {
   const [movies, setMovies] = useState([]);
@@ -18,9 +19,11 @@ function MoviesContainer({ selectedOption }) {
 
   return (
     <div className="moviesContainer">
-      {movies.map((movie) => (
-        <VideoCard key={movie.id} movie={movie} />
-      ))}
+      <FlipMove>
+        {movies.map((movie) => (
+          <VideoCard key={movie.id} movie={movie} />
+        ))}
+      </FlipMove>
     </div>
   );
 }

@@ -19,7 +19,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: space-around;
 }
 
 .header__icon {
@@ -55,5 +54,5 @@
 .header > img {
   object-fit: contain;
   height: 100px;
-  margin-right: 5px;
+  margin-right: 40px;
 }
