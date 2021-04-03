@@ -4,8 +4,12 @@
   height: 400px;
   padding: 20px;
   transition: transform 100ms;
-  align-items: center;
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.videoCard > p {
+  font-size: small;
 }
 
 .videoCard:hover {
@@ -13,6 +17,27 @@
 }
 
 .videoCard > img {
-  height: 300px;
+  height: 250px;
   object-fit: contain;
+  width: 400px;
+}
+
+.videoCard__status {
+  display: none;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.videoCard__status > p {
+  margin-right: 20px;
+}
+
+.videoCard__status > MuiSvgIcon-root {
+  font-size: 20px;
+}
+
+.videoCard:hover > .videoCard__status {
+  display: inline-flex;
 }

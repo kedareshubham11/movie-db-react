@@ -4,12 +4,12 @@ import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
 import requests from "../../Services/API/tmdb-api";
 
-function MoviesContainer() {
+function MoviesContainer({ selectedOption }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchAnimatino);
+      const request = await axios.get(selectedOption);
       setMovies(request.data.results);
       return request;
     }
