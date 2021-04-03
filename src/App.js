@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
+import MoviesContainer from "./Components/MoviesContainer/MoviesContainer";
 import Navbar from "./Components/NavBar/Navbar";
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
+
+      <MoviesContainer />
     </div>
   );
 }

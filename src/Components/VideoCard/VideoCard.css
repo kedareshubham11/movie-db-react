@@ -1,0 +1,18 @@
+.videoCard {
+  color: white;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  transition: transform 100ms;
+  align-items: center;
+  text-align: center;
+}
+
+.videoCard:hover {
+  transform: scale(1.09);
+}
+
+.videoCard > img {
+  height: 300px;
+  object-fit: contain;
+}
