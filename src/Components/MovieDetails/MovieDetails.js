@@ -4,10 +4,20 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import Rating from "@material-ui/lab/Rating";
 import "./MovieDetails.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import API_KEY from "../../Services/API/youtube-api";
+import YTSearch from "youtube-api-search";
+
 const base_url = "https://image.tmdb.org/t/p/original/";
+const base_url_yt = "https://www.youtube.com/watch?v=";
 
 function MovieDetails({ details }) {
   const [favourite, setFavourite] = useState(null);
+
+  const trailerSearch = (name) => {
+    YTSearch({ key: API_KEY, term: name }, (videos) => {
+      window.open(`${base_url_yt}${videos[0].id.videoId}`);
+    });
+  };
 
   return (
     <div
@@ -82,7 +92,12 @@ function MovieDetails({ details }) {
             />
           </span>
 
-          <span className="play__trailer">
+          <span
+            className="play__trailer"
+            onClick={() =>
+              trailerSearch(`${details.title || details.name} trailer`)
+            }
+          >
             <PlayArrowIcon />
             <p>Play Trailer</p>
           </span>
