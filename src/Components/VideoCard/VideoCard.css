@@ -23,11 +23,12 @@
 }
 
 .videoCard__status {
-  display: none;
+  display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
   font-size: 12px;
+  padding-right: 10px;
 }
 
 .videoCard__status > p {
@@ -38,6 +39,8 @@
   font-size: 20px;
 }
 
-.videoCard:hover > .videoCard__status {
-  display: inline-flex;
+.videoCard__status > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

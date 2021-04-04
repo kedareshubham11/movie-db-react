@@ -1,28 +1,32 @@
 import React, { forwardRef } from "react";
-import { ThumbUpSharp } from "@material-ui/icons";
-import TextTruncate from "react-text-truncate";
+import StarIcon from "@material-ui/icons/Star";
 import "./VideoCard.css";
+import { useHistory } from "react-router-dom";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-const VideoCard = forwardRef(({ movie }, ref) => {
+const VideoCard = forwardRef(({ movie, setDetails }, ref) => {
+  const history = useHistory();
+
+  const setMovieDetails = () => {
+    setDetails(movie);
+    console.log(movie);
+    history.push(`/movie-details:${movie.id}`);
+  };
+
   return (
-    <div ref={ref} className="videoCard">
+    <div ref={ref} className="videoCard" onClick={setMovieDetails}>
       <img
         src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
         alt="banner"
       />
-      <TextTruncate
-        line={1}
-        element="p"
-        truncateText="..."
-        text={movie.overview}
-      />
-      <h2>{movie.title}</h2>
+      <h2>{movie.title || movie.name}</h2>
       <span className="videoCard__status">
         <p>{movie.release_date || movie.first_air_date}</p>
-        <ThumbUpSharp />
-        {movie.vote_count}
+        <span>
+          <StarIcon style={{ color: "yellow" }} />
+          <p>{movie.vote_average}</p>
+        </span>
       </span>
     </div>
   );
