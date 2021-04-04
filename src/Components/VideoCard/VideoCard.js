@@ -19,6 +19,7 @@ const VideoCard = forwardRef(({ movie, setDetails }, ref) => {
       <img
         src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
         alt="banner"
+        loading="lazy"
       />
       <h2>{movie.title || movie.name}</h2>
       <span className="videoCard__status">

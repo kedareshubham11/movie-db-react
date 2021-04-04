@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import Rating from "@material-ui/lab/Rating";
@@ -7,6 +7,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 const base_url = "https://image.tmdb.org/t/p/original/";
 
 function MovieDetails({ details }) {
+  const [favourite, setFavourite] = useState(null);
+
   return (
     <div
       className="movieDetails"
@@ -28,10 +30,15 @@ function MovieDetails({ details }) {
         </span>
         <div className="rating_icons">
           <span className="progress">
-            <Box position="relative" display="inline-flex">
+            <Box
+              position="relative"
+              display="inline-flex"
+              style={{ backgroundColor: "black", borderRadius: 50 }}
+            >
               <CircularProgress
                 variant="determinate"
                 value={details.vote_average * 10}
+                style={{ color: "#11de53" }}
               />
               <Box
                 top={0}
@@ -53,7 +60,19 @@ function MovieDetails({ details }) {
               </Box>
             </Box>
           </span>
-          <FavoriteIcon style={{ fontSize: 42, color: "#FFFF" }} />
+          <span
+            onClick={() =>
+              favourite ? setFavourite(null) : setFavourite("#ef5fd5")
+            }
+          >
+            <FavoriteIcon
+              style={{
+                fontSize: 42,
+                color: `${favourite || "#FFFF"}`,
+                cursor: "pointer",
+              }}
+            />
+          </span>
           <span className="ratings">
             <p>Ratings</p>
             <Rating
