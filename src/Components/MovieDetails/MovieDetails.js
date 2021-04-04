@@ -6,12 +6,14 @@ import "./MovieDetails.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import API_KEY from "../../Services/API/youtube-api";
 import YTSearch from "youtube-api-search";
+import { useHistory } from "react-router";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 const base_url_yt = "https://www.youtube.com/watch?v=";
 
 function MovieDetails({ details }) {
   const [favourite, setFavourite] = useState(null);
+  const history = useHistory();
 
   const trailerSearch = (name) => {
     YTSearch({ key: API_KEY, term: name }, (videos) => {
@@ -19,24 +21,27 @@ function MovieDetails({ details }) {
     });
   };
 
+  if (!details) {
+    history.push("/");
+  }
+
   return (
     <div
       className="movieDetails"
-      /*style={{ backgroundImage: `url(${base_url}${details?.backdrop_path})` }}
-       */
+      //   style={{ backgroundImage: `url(${base_url}${details?.backdrop_path})` }}
     >
       <div className="MD_left">
         <img
-          src={`${base_url}${details.poster_path || details.backdrop_path}`}
+          src={`${base_url}${details?.poster_path || details?.backdrop_path}`}
           alt="poster"
           class="poster"
         />
       </div>
       <div className="MD_right">
-        <h2>{details.title || details.name}</h2>
+        <h2>{details?.title || details?.name}</h2>
         <span className="sub">
-          <p className="type">{details.media_type || "Movie"}</p>
-          <p className="language">Language: {details.original_language}</p>
+          <p className="type">{details?.media_type || "Movie"}</p>
+          <p className="language">Language: {details?.original_language}</p>
         </span>
         <div className="rating_icons">
           <span className="progress">
@@ -47,7 +52,7 @@ function MovieDetails({ details }) {
             >
               <CircularProgress
                 variant="determinate"
-                value={details.vote_average * 10}
+                value={details?.vote_average * 10}
                 style={{ color: "#11de53" }}
               />
               <Box
@@ -65,7 +70,7 @@ function MovieDetails({ details }) {
                   component="p"
                   color="#FFFF"
                 >
-                  {details.vote_average * 10}%
+                  {details?.vote_average * 10}%
                 </Typography>
               </Box>
             </Box>
@@ -77,7 +82,7 @@ function MovieDetails({ details }) {
           >
             <FavoriteIcon
               style={{
-                fontSize: 42,
+                fontSize: 40,
                 color: `${favourite || "#FFFF"}`,
                 cursor: "pointer",
               }}
@@ -87,7 +92,7 @@ function MovieDetails({ details }) {
             <p>Ratings</p>
             <Rating
               name="read-only"
-              value={details.vote_average / 2}
+              value={details?.vote_average / 2}
               readOnly
             />
           </span>
@@ -103,15 +108,15 @@ function MovieDetails({ details }) {
           </span>
         </div>
         <h3>Overview</h3>
-        <p>{details.overview}</p>
+        <p>{details?.overview}</p>
         <div className="footer">
           <div className="realease">
             <h4>Release Date</h4>
-            <p>{details.release_date || details.first_air_date}</p>
+            <p>{details?.release_date || details?.first_air_date}</p>
           </div>
           <div className="popularity">
             <h4>Popularity</h4>
-            <p>{details.popularity}</p>
+            <p>{details?.popularity}</p>
           </div>
         </div>
       </div>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
 import FlipMove from "react-flip-move";
-import MovieDetails from "../MovieDetails/MovieDetails";
 
 function MoviesContainer({ selectedOption, setDetails }) {
   const [movies, setMovies] = useState([]);

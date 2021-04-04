@@ -3,6 +3,8 @@
   width: auto;
   display: flex;
   flex-wrap: wrap;
+  background-size: cover;
+  background-position: center;
 }
 
 .MD_left {
@@ -25,8 +27,9 @@
 
 .MD_right {
   flex: 0.8;
-  padding-top: 10px;
+  padding-top: 15px;
   color: white;
+  min-width: 350px;
   font-family: "Source Sans Pro", Arial, sans-serif;
 }
 
@@ -58,6 +61,8 @@
   margin-top: 20px;
   margin-bottom: 40px;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .rating_icons .progress {
@@ -77,9 +82,13 @@
   margin-left: 20px;
   display: flex;
   align-items: center;
+  border-radius: 20px;
+  padding: 5px;
 }
+
 .play__trailer:hover {
   transform: scale(1.05);
+  background-color: rgb(150, 138, 138, 0.1);
 }
 .MD_right > h3 {
   margin-bottom: 20px;
@@ -98,8 +107,6 @@
   margin-top: 40px;
   display: flex;
 }
-.realease {
-}
 
 .popularity {
   margin-left: 80px;
@@ -110,4 +117,34 @@
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .movieDetails {
+    justify-content: center;
+    align-items: center;
+  }
+  .MD_left {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+  }
+  .MD_left > img {
+    margin-left: 50px;
+  }
+
+  .MD_right {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .play__trailer {
+    margin: 15px 0 0 0;
+  }
+
+  .ratings {
+    margin-left: 10px;
+  }
 }
