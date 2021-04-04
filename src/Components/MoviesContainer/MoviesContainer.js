@@ -6,9 +6,8 @@ import axios from "../../Services/API/axios";
 import FlipMove from "react-flip-move";
 import MovieDetails from "../MovieDetails/MovieDetails";
 
-function MoviesContainer({ selectedOption }) {
+function MoviesContainer({ selectedOption, setDetails }) {
   const [movies, setMovies] = useState([]);
-  const [details, setDetails] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,25 +21,11 @@ function MoviesContainer({ selectedOption }) {
 
   return (
     <div className="moviesContainer">
-      <Router>
-        <Switch>
-          <Route path="/movie-details:id">
-            <MovieDetails details={details} />
-          </Route>
-
-          <Route path="/">
-            <FlipMove>
-              {movies.map((movie) => (
-                <VideoCard
-                  key={movie.id}
-                  movie={movie}
-                  setDetails={setDetails}
-                />
-              ))}
-            </FlipMove>
-          </Route>
-        </Switch>
-      </Router>
+      <FlipMove>
+        {movies.map((movie) => (
+          <VideoCard key={movie.id} movie={movie} setDetails={setDetails} />
+        ))}
+      </FlipMove>
     </div>
   );
 }

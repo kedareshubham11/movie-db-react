@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header__icons">
-        <div className="header__icon2">
+        <div className="header__icon2" onClick={() => history.push("/")}>
           <HomeIcon />
         </div>
 

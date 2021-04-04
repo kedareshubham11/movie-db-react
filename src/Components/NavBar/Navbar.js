@@ -1,24 +1,34 @@
 import React from "react";
 import "./Navbar.css";
 import requests from "../../Services/API/tmdb-api";
+import { useHistory, useLocation } from "react-router";
 
 function Navbar({ setSelectedOption, selectedOption }) {
+  const history = useHistory();
+  const location = useLocation();
+
+  const navbarClick = (item) => {
+    setSelectedOption(item);
+    if (location.pathname !== "/") {
+      history.push("/");
+    }
+  };
   return (
     <div className="navbar">
       <h3
-        onClick={() => setSelectedOption(requests.fetchTrending)}
+        onClick={() => navbarClick(requests.fetchTrending)}
         className={selectedOption === requests.fetchTrending ? "active" : ""}
       >
         Trending
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchTopRated)}
+        onClick={() => navbarClick(requests.fetchTopRated)}
         className={selectedOption === requests.fetchTopRated ? "active" : ""}
       >
         Top_Rated
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchActionMovies)}
+        onClick={() => navbarClick(requests.fetchActionMovies)}
         className={
           selectedOption === requests.fetchActionMovies ? "active" : ""
         }
@@ -26,7 +36,7 @@ function Navbar({ setSelectedOption, selectedOption }) {
         Action
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchComedyMovies)}
+        onClick={() => navbarClick(requests.fetchComedyMovies)}
         className={
           selectedOption === requests.fetchComedyMovies ? "active" : ""
         }
@@ -34,13 +44,13 @@ function Navbar({ setSelectedOption, selectedOption }) {
         Comedy
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchAnimatino)}
+        onClick={() => navbarClick(requests.fetchAnimatino)}
         className={selectedOption === requests.fetchAnimatino ? "active" : ""}
       >
         Animation
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchHorrorMovies)}
+        onClick={() => navbarClick(requests.fetchHorrorMovies)}
         className={
           selectedOption === requests.fetchHorrorMovies ? "active" : ""
         }
@@ -48,7 +58,7 @@ function Navbar({ setSelectedOption, selectedOption }) {
         Horror
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchRomanceMovies)}
+        onClick={() => navbarClick(requests.fetchRomanceMovies)}
         className={
           selectedOption === requests.fetchRomanceMovies ? "active" : ""
         }
@@ -56,25 +66,25 @@ function Navbar({ setSelectedOption, selectedOption }) {
         Romance
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchMystery)}
+        onClick={() => navbarClick(requests.fetchMystery)}
         className={selectedOption === requests.fetchMystery ? "active" : ""}
       >
         Mystery
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchSciFi)}
+        onClick={() => navbarClick(requests.fetchSciFi)}
         className={selectedOption === requests.fetchSciFi ? "active" : ""}
       >
         Sci_Fi
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchWestern)}
+        onClick={() => navbarClick(requests.fetchWestern)}
         className={selectedOption === requests.fetchWestern ? "active" : ""}
       >
         Western
       </h3>
       <h3
-        onClick={() => setSelectedOption(requests.fetchTV)}
+        onClick={() => navbarClick(requests.fetchTV)}
         className={selectedOption === requests.fetchTV ? "active" : ""}
       >
         TV
