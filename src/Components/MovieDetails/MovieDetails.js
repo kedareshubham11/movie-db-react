@@ -15,7 +15,7 @@ function MovieDetails({ details }) {
     >
       <div className="MD_left">
         <img
-          src={`${base_url}${details.poster_path}`}
+          src={`${base_url}${details.poster_path || details.backdrop_path}`}
           alt="poster"
           class="poster"
         />
@@ -73,7 +73,7 @@ function MovieDetails({ details }) {
         <div className="footer">
           <div className="realease">
             <h4>Release Date</h4>
-            <p>{details.release_date}</p>
+            <p>{details.release_date || details.first_air_date}</p>
           </div>
           <div className="popularity">
             <h4>Popularity</h4>

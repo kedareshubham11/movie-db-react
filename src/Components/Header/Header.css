@@ -27,9 +27,19 @@
   cursor: pointer;
   width: 100px;
 }
+.header__icon2 {
+  display: none;
+  cursor: pointer;
+  width: 100px;
+}
 
 .header__icon > .MuiSvgIcon-root {
   font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header__icon2 > .MuiSvgIcon-root {
+  font-size: 40px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -55,4 +65,14 @@
   object-fit: contain;
   height: 100px;
   margin-right: 40px;
+}
+
+@media (max-width: 700px) {
+  .header__icon {
+    display: none;
+  }
+
+  .header__icon2 {
+    display: inline;
+  }
 }

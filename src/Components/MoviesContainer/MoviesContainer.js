@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";

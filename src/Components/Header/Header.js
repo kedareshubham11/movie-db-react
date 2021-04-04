@@ -15,6 +15,10 @@ function Header() {
   return (
     <div className="header">
       <div className="header__icons">
+        <div className="header__icon2">
+          <HomeIcon />
+        </div>
+
         <div
           className="header__icon header__icon--active"
           onClick={() => history.push("/")}

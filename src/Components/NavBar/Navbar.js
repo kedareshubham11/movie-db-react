@@ -15,7 +15,7 @@ function Navbar({ setSelectedOption, selectedOption }) {
         onClick={() => setSelectedOption(requests.fetchTopRated)}
         className={selectedOption === requests.fetchTopRated ? "active" : ""}
       >
-        Top Rated
+        Top_Rated
       </h3>
       <h3
         onClick={() => setSelectedOption(requests.fetchActionMovies)}
@@ -65,7 +65,7 @@ function Navbar({ setSelectedOption, selectedOption }) {
         onClick={() => setSelectedOption(requests.fetchSciFi)}
         className={selectedOption === requests.fetchSciFi ? "active" : ""}
       >
-        Sci-Fi
+        Sci_Fi
       </h3>
       <h3
         onClick={() => setSelectedOption(requests.fetchWestern)}
