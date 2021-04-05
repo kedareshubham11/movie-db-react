@@ -4,7 +4,7 @@
   base = "/"
   
    [[redirects]]
-  from = "/*"
-  to = "https:api.themoviedb.org/3"
+  from = "https://shubham-kedare-movie-db.netlify.app/*"
+  to = "/"
   status = 200
   
