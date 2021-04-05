@@ -10,7 +10,6 @@ const VideoCard = forwardRef(({ movie, setDetails }, ref) => {
 
   const setMovieDetails = () => {
     setDetails(movie);
-    console.log(movie);
     history.push(`/movie-details:${movie.id}`);
   };
 

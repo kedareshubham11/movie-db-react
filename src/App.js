@@ -10,29 +10,36 @@ import requests from "./Services/API/tmdb-api";
 function App() {
   const [selectedOption, setSelectedOption] = useState(requests.fetchTrending);
   const [details, setDetails] = useState(null);
+  const [movies, setMovies] = useState([]);
 
   return (
     <div className="App">
       <Router>
+        <Header movies={movies} setMovies={setMovies} />
+        <Navbar
+          setSelectedOption={setSelectedOption}
+          selectedOption={selectedOption}
+        />
         <Switch>
           <Route path="/movie-details:id">
-            <Header />
-            <Navbar
-              setSelectedOption={setSelectedOption}
-              selectedOption={selectedOption}
-            />
             <MovieDetails details={details} />
           </Route>
 
-          <Route path="/">
-            <Header />
-            <Navbar
-              setSelectedOption={setSelectedOption}
-              selectedOption={selectedOption}
+          <Route path="/search/:name">
+            <MoviesContainer
+              movies={movies}
+              setMovies={setMovies}
+              setDetails={setDetails}
+              search={true}
             />
+          </Route>
+
+          <Route path="/">
             <MoviesContainer
               selectedOption={selectedOption}
               setDetails={setDetails}
+              movies={movies}
+              setMovies={setMovies}
             />
           </Route>
         </Switch>

@@ -11,6 +11,7 @@ const movies = {
   fetchSciFi: `/discover/movie?api_key=${API_KEY}&with_genres=878`,
   fetchWestern: `/discover/movie?api_key=${API_KEY}&with_genres=37`,
   fetchTV: `/discover/movie?api_key=${API_KEY}&with_genres=10770`,
+  search: `/search/movie?api_key=${API_KEY}&language=en-US&query=`,
 };
 
 // search api https://api.themoviedb.org/3/search/movie?api_key=7834e7c9a549da564ee38e84ade61e97&language=en-US&query=avengers&page=1

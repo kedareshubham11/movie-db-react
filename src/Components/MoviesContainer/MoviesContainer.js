@@ -1,20 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
 import FlipMove from "react-flip-move";
-function MoviesContainer({ selectedOption, setDetails }) {
-  const [movies, setMovies] = useState([]);
+import { useHistory } from "react-router-dom";
 
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(selectedOption);
-      setMovies(request.data.results);
-      return request;
+function MoviesContainer({
+  selectedOption,
+  setDetails,
+  movies,
+  setMovies,
+  search,
+}) {
+  const history = useHistory();
+
+  if (search) {
+    if (movies.length === 0) {
+      history.push("/");
     }
+  }
+  useEffect(() => {
+    if (!search) {
+      async function fetchData() {
+        const request = await axios.get(selectedOption);
+        setMovies(request.data.results);
+        return request;
+      }
 
-    fetchData();
-  }, [selectedOption]);
+      fetchData();
+    }
+  }, [selectedOption, setMovies, search]);
 
   return (
     <div className="moviesContainer">
@@ -23,6 +38,8 @@ function MoviesContainer({ selectedOption, setDetails }) {
           <VideoCard key={movie.id} movie={movie} setDetails={setDetails} />
         ))}
       </FlipMove>
+
+      {search}
     </div>
   );
 }

@@ -14,7 +14,7 @@ const base_url_yt = "https://www.youtube.com/watch?v=";
 function MovieDetails({ details }) {
   const [favourite, setFavourite] = useState(null);
   const history = useHistory();
-
+  console.log(details);
   const trailerSearch = (name) => {
     YTSearch({ key: API_KEY, term: name }, (videos) => {
       window.open(`${base_url_yt}${videos[0].id.videoId}`);
