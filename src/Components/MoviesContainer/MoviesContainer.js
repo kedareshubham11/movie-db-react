@@ -3,7 +3,6 @@ import VideoCard from "../VideoCard/VideoCard";
 import "./MoviesContainer.css";
 import axios from "../../Services/API/axios";
 import FlipMove from "react-flip-move";
-
 function MoviesContainer({ selectedOption, setDetails }) {
   const [movies, setMovies] = useState([]);
 
