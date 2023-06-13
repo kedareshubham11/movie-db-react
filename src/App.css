@@ -5,4 +5,5 @@
 
 .App {
   background-image: linear-gradient(to right, #051421, #042727);
+  min-height: 100vh;
 }

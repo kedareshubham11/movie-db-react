@@ -70,7 +70,7 @@ function MovieDetails({ details }) {
                   component="p"
                   color="#FFFF"
                 >
-                  {details?.vote_average * 10}%
+                  {Math.floor(details?.vote_average * 10)}%
                 </Typography>
               </Box>
             </Box>
